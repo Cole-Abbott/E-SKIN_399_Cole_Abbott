@@ -95,6 +95,7 @@ int main(void) {
             //start new DMA transfer
             DMAC_ChannelTransfer(DMAC_CHANNEL_0, ADC_SRC_ADDR, ADC_SRC_SIZE, adc_buf, sizeof (adc_buf), sizeof (uint16_t));
             ADCHS_ChannelResultInterruptEnable(ADCHS_CH2);
+            printf("done");
         }
     }
 
