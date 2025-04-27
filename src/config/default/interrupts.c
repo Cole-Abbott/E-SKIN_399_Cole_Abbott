@@ -67,7 +67,6 @@
 // *****************************************************************************
 // *****************************************************************************
 void TIMER_2_Handler (void);
-void ADC_DATA2_Handler (void);
 void DMA0_Handler (void);
 
 
@@ -79,11 +78,6 @@ void DMA0_Handler (void);
 void __attribute__((used)) __ISR(_TIMER_2_VECTOR, ipl1SRS) TIMER_2_Handler (void)
 {
     TIMER_2_InterruptHandler();
-}
-
-void __attribute__((used)) __ISR(_ADC_DATA2_VECTOR, ipl1SRS) ADC_DATA2_Handler (void)
-{
-    ADC_DATA2_InterruptHandler();
 }
 
 void __attribute__((used)) __ISR(_DMA0_VECTOR, ipl1SRS) DMA0_Handler (void)

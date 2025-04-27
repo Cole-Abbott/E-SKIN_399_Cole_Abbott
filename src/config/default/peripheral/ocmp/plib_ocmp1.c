@@ -1,22 +1,22 @@
 /*******************************************************************************
- System Interrupts File
+  Output Compare OCMP1 Peripheral Library (PLIB)
 
   Company:
     Microchip Technology Inc.
 
   File Name:
-    interrupt.h
+    plib_ocmp1.c
 
   Summary:
-    Interrupt vectors mapping
+    OCMP1 Source File
 
   Description:
-    This file contains declarations of device vectors used by Harmony 3
- *******************************************************************************/
+    None
 
-// DOM-IGNORE-BEGIN
+*******************************************************************************/
+
 /*******************************************************************************
-* Copyright (C) 2025 Microchip Technology Inc. and its subsidiaries.
+* Copyright (C) 2019 Microchip Technology Inc. and its subsidiaries.
 *
 * Subject to your compliance with these terms, you may use Microchip software
 * and any derivatives exclusively with Microchip products. It is your
@@ -36,29 +36,63 @@
 * FULLEST EXTENT ALLOWED BY LAW, MICROCHIP'S TOTAL LIABILITY ON ALL CLAIMS IN
 * ANY WAY RELATED TO THIS SOFTWARE WILL NOT EXCEED THE AMOUNT OF FEES, IF ANY,
 * THAT YOU HAVE PAID DIRECTLY TO MICROCHIP FOR THIS SOFTWARE.
- *******************************************************************************/
-// DOM-IGNORE-END
-
-#ifndef INTERRUPTS_H
-#define INTERRUPTS_H
+*******************************************************************************/
+#include "plib_ocmp1.h"
+#include "interrupts.h"
 
 // *****************************************************************************
-// *****************************************************************************
-// Section: Included Files
-// *****************************************************************************
-// *****************************************************************************
-#include <stdint.h>
-
-
 
 // *****************************************************************************
+// Section: OCMP1 Implementation
 // *****************************************************************************
-// Section: Handler Routines
 // *****************************************************************************
+
 // *****************************************************************************
-void TIMER_2_InterruptHandler( void );
-void DMA0_InterruptHandler( void );
 
 
+void OCMP1_Initialize (void)
+{
+    /*Setup OC1CON        */
+    /*OCM         = 5        */
+    /*OCTSEL       = 1        */
+    /*OC32         = 0        */
+    /*SIDL         = false    */
 
-#endif // INTERRUPTS_H
+    OC1CON = 0xd;
+
+    OC1R = 16;
+    OC1RS = 18;
+
+}
+
+void OCMP1_Enable (void)
+{
+    OC1CONSET = _OC1CON_ON_MASK;
+}
+
+void OCMP1_Disable (void)
+{
+    OC1CONCLR = _OC1CON_ON_MASK;
+}
+
+
+void OCMP1_CompareValueSet (uint16_t value)
+{
+    OC1R = value;
+}
+
+uint16_t OCMP1_CompareValueGet (void)
+{
+    return (uint16_t)OC1R;
+}
+
+void OCMP1_CompareSecondaryValueSet (uint16_t value)
+{
+    OC1RS = value;
+}
+
+uint16_t OCMP1_CompareSecondaryValueGet (void)
+{
+    return (uint16_t)OC1RS;
+}
+

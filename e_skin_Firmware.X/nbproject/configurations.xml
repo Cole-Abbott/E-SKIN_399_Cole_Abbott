@@ -26,6 +26,10 @@
             <logicalFolder name="gpio" displayName="gpio" projectFiles="true">
               <itemPath>../src/config/default/peripheral/gpio/plib_gpio.h</itemPath>
             </logicalFolder>
+            <logicalFolder name="ocmp" displayName="ocmp" projectFiles="true">
+              <itemPath>../src/config/default/peripheral/ocmp/plib_ocmp1.h</itemPath>
+              <itemPath>../src/config/default/peripheral/ocmp/plib_ocmp_common.h</itemPath>
+            </logicalFolder>
             <logicalFolder name="tmr" displayName="tmr" projectFiles="true">
               <itemPath>../src/config/default/peripheral/tmr/plib_tmr3.h</itemPath>
               <itemPath>../src/config/default/peripheral/tmr/plib_tmr_common.h</itemPath>
@@ -81,6 +85,9 @@
             </logicalFolder>
             <logicalFolder name="gpio" displayName="gpio" projectFiles="true">
               <itemPath>../src/config/default/peripheral/gpio/plib_gpio.c</itemPath>
+            </logicalFolder>
+            <logicalFolder name="ocmp" displayName="ocmp" projectFiles="true">
+              <itemPath>../src/config/default/peripheral/ocmp/plib_ocmp1.c</itemPath>
             </logicalFolder>
             <logicalFolder name="tmr" displayName="tmr" projectFiles="true">
               <itemPath>../src/config/default/peripheral/tmr/plib_tmr3.c</itemPath>

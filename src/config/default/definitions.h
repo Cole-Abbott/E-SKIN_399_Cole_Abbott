@@ -57,6 +57,7 @@
 #include "peripheral/evic/plib_evic.h"
 #include "peripheral/dmac/plib_dmac.h"
 #include "bsp/bsp.h"
+#include "peripheral/ocmp/plib_ocmp1.h"
 #include "peripheral/uart/plib_uart6.h"
 
 // DOM-IGNORE-BEGIN

@@ -1,22 +1,22 @@
 /*******************************************************************************
- System Interrupts File
+  Output Compare (OCMP) Peripheral Library Interface Header File
 
   Company:
     Microchip Technology Inc.
 
   File Name:
-    interrupt.h
+    plib_ocmp1.h
 
   Summary:
-    Interrupt vectors mapping
+    OCMP PLIB Header File
 
   Description:
-    This file contains declarations of device vectors used by Harmony 3
- *******************************************************************************/
+    None
 
-// DOM-IGNORE-BEGIN
+*******************************************************************************/
+
 /*******************************************************************************
-* Copyright (C) 2025 Microchip Technology Inc. and its subsidiaries.
+* Copyright (C) 2019 Microchip Technology Inc. and its subsidiaries.
 *
 * Subject to your compliance with these terms, you may use Microchip software
 * and any derivatives exclusively with Microchip products. It is your
@@ -36,29 +36,98 @@
 * FULLEST EXTENT ALLOWED BY LAW, MICROCHIP'S TOTAL LIABILITY ON ALL CLAIMS IN
 * ANY WAY RELATED TO THIS SOFTWARE WILL NOT EXCEED THE AMOUNT OF FEES, IF ANY,
 * THAT YOU HAVE PAID DIRECTLY TO MICROCHIP FOR THIS SOFTWARE.
- *******************************************************************************/
+*******************************************************************************/
+
+#ifndef PLIB_OCMP1_H
+#define PLIB_OCMP1_H
+
+#include <stddef.h>
+#include <stdbool.h>
+#include <stdint.h>
+#include "device.h"
+#include "plib_ocmp_common.h"
+
+// DOM-IGNORE-BEGIN
+#ifdef __cplusplus  // Provide C++ Compatibility
+    extern "C" {
+#endif
 // DOM-IGNORE-END
 
-#ifndef INTERRUPTS_H
-#define INTERRUPTS_H
 
 // *****************************************************************************
+// Section: Interface
 // *****************************************************************************
-// Section: Included Files
 // *****************************************************************************
+
+/*************************** OCMP1 API ****************************************/
 // *****************************************************************************
-#include <stdint.h>
+/* Function:
+   void OCMP1_Initialize (void)
+
+  Summary:
+    Initialization function OCMP1 peripheral
+
+  Description:
+    This function initializes the OCMP1 peripheral with user input
+	from the configurator.
+
+  Parameters:
+    void
+
+  Returns:
+    void
+*/
+void OCMP1_Initialize (void);
+
+// *****************************************************************************
+/* Function:
+   void OCMP1_Enable (void)
+
+  Summary:
+    Enable function OCMP1 peripheral
+
+  Description:
+    This function enables the OCMP1 peripheral
+
+  Parameters:
+    void
+
+  Returns:
+    void
+*/
+void OCMP1_Enable (void);
+
+// *****************************************************************************
+/* Function:
+   void OCMP1_Disable (void)
+
+  Summary:
+    Disable function OCMP1 peripheral
+
+  Description:
+    This function disables the OCMP1 peripheral.
+
+  Parameters:
+    void
+
+  Returns:
+    void
+*/
+void OCMP1_Disable (void);
 
 
+void OCMP1_CompareValueSet (uint16_t value);
 
-// *****************************************************************************
-// *****************************************************************************
-// Section: Handler Routines
-// *****************************************************************************
-// *****************************************************************************
-void TIMER_2_InterruptHandler( void );
-void DMA0_InterruptHandler( void );
+uint16_t OCMP1_CompareValueGet (void);
+
+uint16_t OCMP1_CompareSecondaryValueGet (void);
+void OCMP1_CompareSecondaryValueSet (uint16_t value);
 
 
+// DOM-IGNORE-BEGIN
+#ifdef __cplusplus  // Provide C++ Compatibility
+    }
+#endif
 
-#endif // INTERRUPTS_H
+// DOM-IGNORE-END
+#endif // PLIB_OCMP1_H

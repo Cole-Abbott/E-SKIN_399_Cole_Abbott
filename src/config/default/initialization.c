@@ -219,6 +219,8 @@ void SYS_Initialize ( void* data )
     DMAC_Initialize();
 
 	BSP_Initialize();
+    OCMP1_Initialize();
+
 	UART6_Initialize();
 
 
